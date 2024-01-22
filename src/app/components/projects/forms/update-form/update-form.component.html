@@ -1,0 +1,22 @@
+<form [formGroup]="editForm">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Project name is required">
+      <label>Title</label>
+      <input
+        type="text"
+        nz-input
+        [nzSize]="'large'"
+        formControlName="name"
+        placeholder="Title"
+      />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Description must be at least 6 characters">
+      <label>Description</label>
+      <nz-textarea-count [nzMaxCharacterCount]="200">
+        <textarea rows="4" formControlName="description" nz-input></textarea>
+      </nz-textarea-count>
+    </nz-form-control>
+  </nz-form-item>
+</form>

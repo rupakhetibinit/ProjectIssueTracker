@@ -1,0 +1,19 @@
+<mat-dialog-content>
+  <p>Are you sure you want to delete {{ project.name }}?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <nz-space>
+    <button *nzSpaceItem nz-button nzType="default" mat-dialog-close>
+      Cancel
+    </button>
+    <button
+      *nzSpaceItem
+      nz-button
+      nzType="default"
+      nzDanger
+      (click)="onDelete()"
+    >
+      Delete
+    </button>
+  </nz-space>
+</mat-dialog-actions>

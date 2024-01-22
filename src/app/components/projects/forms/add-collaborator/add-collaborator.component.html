@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>Add Collaborator</h2>
+<mat-dialog-content>
+  <form [formGroup]="addCollaboratorForm">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Search"
+        aria-label="State"
+        [matAutocomplete]="auto"
+        formControlName="searchBar"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        @if (isLoading) {
+<mat-option class="is-loading">Loading...</mat-option>
+}
+        @if (!isLoading) {
+
+          @for (option of searchResult | async; track option) {
+  <mat-option
+           
+            [value]="option"
+          >
+            <span>{{ option.volumeInfo.title }}</span>
+          </mat-option>
+}
+        
+}
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button>Create</button>
+</mat-dialog-actions>

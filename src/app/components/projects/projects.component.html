@@ -1,0 +1,47 @@
+<!-- <mat-grid-list cols="2" rowHeight="2:1"> -->
+<!-- <app-greeting-card></app-greeting-card> -->
+<div style="display: flex; justify-content: space-between; align-items: center">
+  <h1 style="margin-left: 1rem; margin-top: 0.25rem; margin-bottom: -0.25rem">
+    Your Projects
+  </h1>
+
+  <button
+    (click)="openProjectCreateOrUpdateDialog()"
+    nz-button
+    nzType="primary"
+  >
+    <span nz-icon nzType="plus"></span>
+    Create Project
+  </button>
+</div>
+<div style="min-height: 60vh">
+  @for (project of projects(); track project) {
+  <span>
+    <div
+      style="display: flex; justify-content: center; align-items: center"
+      nz-row
+      [nzGutter]="8"
+    >
+      <app-project-card [project]="project"></app-project-card>
+    </div>
+  </span>
+}
+  <div
+    style="
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      padding-right: 6rem;
+    "
+  >
+    <nz-pagination
+      (nzPageIndexChange)="projectsStore.fetchProjectsForUser($event)"
+      [nzPageSize]="9"
+      [(nzPageIndex)]="projectsStore.pageNumber"
+      [nzTotal]="projectsStore.totalProjects()"
+    >
+      >
+    </nz-pagination>
+  </div>
+</div>
+<!-- </mat-grid-list> -->

@@ -1,0 +1,63 @@
+<nz-table
+  nzSize="small"
+  [nzFrontPagination]="false"
+  #basicTable
+  [nzData]="issues"
+>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (data of basicTable.data; track data) {
+  <tr>
+      <td>{{ data.id }}</td>
+      <td>{{ data.title }}</td>
+      <td>{{ data.creatorName }}</td>
+      <td>{{ option[data.status] }}</td>
+      <td>
+        <a
+          nzType="primary"
+          nz-button
+          nz-dropdown
+          [nzDropdownMenu]="menu"
+          nzTrigger="click"
+          nzPlacement="bottomRight"
+        >
+          <span nz-icon nzType="ellipsis"></span>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li
+              (click)="viewIssue(data)"
+              style="padding-left: 1rem; padding-right: 1rem"
+              nz-menu-item
+            >
+              <a>View</a>
+            </li>
+            <li
+              (click)="editIssue(data)"
+              style="padding-left: 1rem; padding-right: 1rem"
+              nz-menu-item
+            >
+              <a>Edit</a>
+            </li>
+            <li
+              (click)="deleteIssue(data)"
+              style="padding-left: 1rem; padding-right: 1rem"
+              nz-menu-item
+            >
+              <a>Delete</a>
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </td>
+    </tr>
+}
+  </tbody>
+</nz-table>

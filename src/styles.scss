@@ -1,0 +1,36 @@
+// @use "@angular/material" as mat;
+// @use "./app/components/projects/project-card/project-card-theme" as project-card;
+// @use "./app/components/card/greeting-card/greeting-card.theme" as greeting-card;
+// /* You can add global styles to this file, and also import other style files */
+
+// html,
+// body {
+//   height: 100%;
+// }
+// body {
+//   margin: 0;
+//   font-family: Roboto, "Helvetica Neue", sans-serif;
+// }
+
+// @include mat.core();
+
+// $my-primary: mat.define-palette(mat.$indigo-palette, 500);
+// $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// $my-theme: mat.define-light-theme(
+//   (
+//     color: (
+//       primary: $my-primary,
+//       accent: $my-accent,
+//     ),
+//   )
+// );
+
+// @include mat.all-component-themes($my-theme);
+// @include project-card.theme($my-theme);
+// @include greeting-card.theme($my-theme);
+
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+@import "ngx-toastr/toastr";

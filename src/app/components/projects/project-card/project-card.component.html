@@ -1,0 +1,40 @@
+<div style="margin: 0.5rem" nz-col [nzSpan]="8">
+  <nz-card
+    (click)="navigate()"
+    nzHoverable
+    class="card mb-0"
+    [nzTitle]="project.name"
+    [nzExtra]="extraTemplate"
+  >
+    <p nz-typography nzEllipsis [nzEllipsisRows]="1">
+      {{ project.description }} reload
+    </p>
+    <p class="font-semibold m-0 text-md">Issues Metrics</p>
+    <div class="flex justify-between mb-0">
+      <nz-statistic
+        [nzValue]="(project.issueMetrics?.['Completed'] ?? 0 )!"
+        [nzTitle]="'Completed'"
+      ></nz-statistic>
+      <nz-statistic
+        [nzValue]="(project.issueMetrics?.['NotStarted'] ?? 0)!"
+        [nzTitle]="'Not Started'"
+      ></nz-statistic>
+      <nz-statistic
+        [nzValue]="project.issueMetrics?.['InProgress'] ?? 0"
+        [nzTitle]="'In Progress'"
+      ></nz-statistic>
+    </div>
+  </nz-card>
+</div>
+
+<ng-template #extraTemplate>
+  <button
+    nz-button
+    (click)="$event.stopPropagation(); showConfirm()"
+    nzType="default"
+    nzDanger
+  >
+    <span nz-icon nzType="trash"></span>
+    Delete
+  </button>
+</ng-template>

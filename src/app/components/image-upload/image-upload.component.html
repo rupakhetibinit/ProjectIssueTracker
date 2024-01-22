@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <input type="file" class="file-input" (change)="onFileSelected($event)" />
+  <input type="text" formControlName="email" />
+  <div class="file-upload">
+    {{ fileName || "No file uploaded yet." }}
+
+    <button
+      mat-mini-fab
+      color="primary"
+      class="upload-btn"
+      [disabled]="!this.file"
+      (click)="upload()"
+    >
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  </div>
+</form>

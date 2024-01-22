@@ -1,0 +1,53 @@
+<div class="login">
+  <div class="card">
+    <h1>Welcome to Project Issue Tracker</h1>
+    <form
+      nz-form
+      [formGroup]="loginForm"
+      class="login-form"
+      (ngSubmit)="login()"
+    >
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Email must be a valid email">
+          <nz-input-group nzPrefixIcon="user">
+            <input
+              type="email"
+              nz-input
+              [nzSize]="'large'"
+              formControlName="email"
+              placeholder="Email"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Password must be at least 8 characters">
+          <nz-input-group nzPrefixIcon="lock">
+            <input
+              type="password"
+              nz-input
+              formControlName="password"
+              placeholder="Password"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <div class="text-red-500">{{ error }}</div>
+      <button
+        nz-button
+        class="login-form-button login-form-margin"
+        [nzType]="'primary'"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Log in
+      </button>
+      <span class="register-content">
+        Don't have an account?
+        <button nz-button [nzType]="'link'" routerLink="/register">
+          Register
+        </button>
+      </span>
+    </form>
+  </div>
+</div>

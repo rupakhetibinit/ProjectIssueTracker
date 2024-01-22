@@ -1,0 +1,67 @@
+.layout {
+  min-height: 100vh;
+}
+
+.header {
+  background-color: white;
+  border-bottom: 2px solid black;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  // background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-bottom: 2rem;
+  h4 {
+    color: white;
+    text-align: center;
+  }
+}
+
+nz-header {
+  background: #fff;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  h4 {
+    margin-right: 1rem;
+    user-select: none;
+  }
+}
+
+nz-content {
+  margin: 0 16px;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  min-height: 360px;
+}
+
+nz-footer {
+  text-align: center;
+}
+
+// nz-dropdown-menu {
+//   ul {
+//     .li {
+//       width: 300px;
+//       .icon {
+//         margin-right: 1rem;
+//       }
+//     }
+//   }
+// }
+
+.icon {
+  margin-right: 1rem;
+}
